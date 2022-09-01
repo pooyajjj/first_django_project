@@ -1,4 +1,3 @@
-from urllib import request
 from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import date
@@ -22,3 +21,10 @@ def detail(request, slug):
         'article': Article.objects.get(slug = slug)
 }
     return render(request, 'blog/detail.html', context)
+
+def index(request):
+    return render(request, 'blog/index.html')
+
+
+def about(request):
+    return render(request, 'blog/about.html')
