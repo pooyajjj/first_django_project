@@ -7,6 +7,7 @@ urlpatterns = [
     path('time',time, name = "time"),
     path('article/<slug:slug>',detail, name = "detail"),
     path('index',index ,name = 'index'),
+    path('article/index',index ,name = 'index-2'),
     path('about',about ,name = 'about'),
     
 ]
