@@ -29,3 +29,8 @@ def index(request):
 def about(request):
     return render(request, 'blog/about.html')
 
+def post(request):
+    return render(request, 'blog/example_post.html')
+
+def contact(request):
+    return render(request, 'blog/contact.html')
