@@ -1,5 +1,5 @@
 from unicodedata import name
-from django.urls import path
+from django.urls import path, include
 from .views import home ,time, detail, contact ,index, about, post
 
 AppName = 'fotball'
@@ -10,5 +10,6 @@ urlpatterns = [
     path('index',home ,name = 'index'),
     path('about',about ,name = 'about'),
     path('post' ,post ,name = 'post'),
-    path('contact', contact, name = 'contact')
+    path('contact', contact, name = 'contact'),
+    path('api-auth/', include('rest_framework.urls')),
 ]
