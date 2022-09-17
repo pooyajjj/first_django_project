@@ -2,8 +2,20 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from datetime import date
 from .models import Article
-
+from rest_framework.views import APIView
+from rest_framework import status
+from rest_framework.response import Response
+from blog.serializers import BlogModelSerializers
 # Create your views here.
+
+
+
+class GetAllDate(APIView):
+    def get(self, request):
+        query = Article.objects.all()
+        serializers = BlogModelSerializers(query, many=True)
+        return Response(serializers.data, status=status.HTTP_200_OK)
+
 
 def home(request):
     context = {
