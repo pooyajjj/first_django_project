@@ -5,7 +5,7 @@ from .models import Article
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
-from blog.serializers import BlogModelSerializers
+from blog.serializers import BlogModelSerializer
 # Create your views here.
 
 
@@ -13,7 +13,7 @@ from blog.serializers import BlogModelSerializers
 class GetAllDate(APIView):
     def get(self, request):
         query = Article.objects.all()
-        serializers = BlogModelSerializers(query, many=True)
+        serializers = BlogModelSerializer(query, many=True)
         return Response(serializers.data, status=status.HTTP_200_OK)
 
 

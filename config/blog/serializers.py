@@ -14,7 +14,7 @@ from blog.models import Article
 #     created = serializers.DateField(auto_now_add = True)
 #     created = serializers.DateField(auto_now = True)
 
-class BlogModelSerializers(serializers.ModelSerializers):
+class BlogModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
         fields = '__all__'
