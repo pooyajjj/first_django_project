@@ -1,3 +1,5 @@
+from email.policy import default
+from pyexpat import model
 from turtle import position
 from unicodedata import category
 from django.db import models
@@ -13,6 +15,7 @@ class Category(models.Model):
     slug = models.SlugField(max_length = 100, unique = True, verbose_name = 'category addres')
     status = models.BooleanField(default = True , verbose_name = 'show')
     position = models.IntegerField(verbose_name = 'position')
+    fav = models.BooleanField(default = False)
 
     class Meta:
         verbose_name = 'category'
@@ -34,6 +37,7 @@ class Article(models.Model):
     category = models.ManyToManyField(Category , verbose_name = 'category' )
     description = models.TextField()
     thumbnail = models.ImageField(upload_to = 'images')
+    fav = models.BooleanField(default = False)
     publish = models.DateField(default = timezone.now)
     created = models.DateField(auto_now_add = True)
     created = models.DateField(auto_now = True)

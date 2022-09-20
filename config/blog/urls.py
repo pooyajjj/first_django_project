@@ -1,6 +1,6 @@
 from unicodedata import name
 from django.urls import path, include
-from .views import home ,time, detail, contact ,index, about, post, GetAllDate
+from .views import home ,time, detail, contact ,index, about, post, GetAllDate, GetFavData
 
 AppName = 'fotball'
 urlpatterns = [
@@ -12,5 +12,6 @@ urlpatterns = [
     path('post' ,post ,name = 'post'),
     path('contact', contact, name = 'contact'),
     path('api-auth/', include('rest_framework.urls')),
-    path('get/', GetAllDate.as_view(), name = 'get'),
+    path('get_all', GetAllDate.as_view(), name = 'get_all'),
+    path('get_fav', GetFavData.as_view(), name = 'get_fav'),
 ]

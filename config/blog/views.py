@@ -16,6 +16,11 @@ class GetAllDate(APIView):
         serializers = BlogModelSerializer(query, many=True)
         return Response(serializers.data, status=status.HTTP_200_OK)
 
+class GetFavData(APIView):
+    def get(self, request):
+        query = Article.objects.filter(fav = True)
+        serializers = BlogModelSerializer(query, many= True)
+        return Response (serializers.data, status = status.HTTP_200_OK)
 
 def home(request):
     context = {
