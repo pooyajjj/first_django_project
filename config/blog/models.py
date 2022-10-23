@@ -1,7 +1,6 @@
 from email.policy import default
 from pyexpat import model
 from turtle import position
-from unicodedata import category
 from django.db import models
 from django.utils import timezone
 
