@@ -1,6 +1,7 @@
 from unicodedata import category
 from django.contrib import admin
 from .models import Article, Category
+from django.contrib.auth.models import Group
 
 
 # Register your models here.
@@ -29,6 +30,6 @@ class ArticleAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Article, ArticleAdmin)
-
+admin.site.unregister(Group)
 
 
